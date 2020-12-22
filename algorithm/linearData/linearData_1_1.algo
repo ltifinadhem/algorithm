@@ -1,0 +1,35 @@
+ALGORITHM linear_data_1
+VAR
+    setOne : ARRAY_OF INTEGER[];
+    setTwo : ARRAY_OF INTEGER[];
+    sum : INTEGER :=0;
+    count,i,j : INTEGER;
+BEGIN
+    Write("write setOne :");
+    Read(setOne);
+    Write("write setTwo :");
+    Read(setTwo);
+       FOR i FROM 0 TO setOne.length-1 STEP 1  DO
+         count :=0;
+        FOR j FROM 0 TO setTwo.length-1 STEP 1  DO
+            IF (setOne[i]=setTwo[j]) THEN
+                count:=count+1;
+            END_IF
+        END_FOR
+    IF (count=0) THEN
+        sum := sum+setOne[i];
+    END_IF
+    END_FOR
+      FOR i FROM 0 TO setTwo.length-1 STEP 1  DO
+        count :=0;
+        FOR j FROM 0 TO setOne.length-1 STEP 1  DO
+            IF (setTwo[i]=setOne[j]) THEN
+                count:=count+1;
+            END_IF
+        END_FOR
+    IF (count=0) THEN
+        sum := sum+setTwo[i];
+     END_IF
+     END_FOR
+    Write("the sum of all distinct elements from the set is :",sum);
+END

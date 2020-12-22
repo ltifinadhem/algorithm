@@ -1,0 +1,36 @@
+ALGORITHM linearData_2_2
+
+VAR
+    set1 : ARRAY_OF INTEGER[];
+    set2 : ARRAY_OF INTEGER[];
+    temp : ARRAY_OF INTEGER[];
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+    i,j,count : INTEGER;
+    sum : INTEGER := 0;
+BEGIN
+    Write("give set1 :");
+    Read(set1);
+    Write("give set2 :");
+    Read(set2);
+    FOR i FROM 0 TO set1.length-1   DO
+        temp[i]:=set1[i];
+    END_FOR
+    FOR i FROM set1.length TO set1.length+set2.length-1  DO
+        temp[i]:=set2[i-set1.length];
+    END_FOR
+    FOR i FROM 0 TO temp.length-1   DO
+        count := 0;
+        FOR j FROM 0 TO temp.length-1  DO
+            IF (temp[i]=temp[j]) THEN
+                count := count + 1;
+            END_IF
+        END_FOR
+        htab.insert(temp[i],count);
+    END_FOR
+    FOR i FROM 0 TO temp.length-1   DO
+        IF (htab.get(temp[i]) <> 1) THEN
+            sum := sum + temp[i];
+        END_IF
+    END_FOR
+    Write("The sum of overlapping elements:",sum);
+END  

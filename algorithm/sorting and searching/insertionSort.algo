@@ -1,0 +1,15 @@
+FUNCTION Insertion_Sort(arr : ARRAY_OF INTEGER[]) : ARRAY
+VAR
+    el,i,j : INTEGER;
+BEGIN
+    FOR i FROM 0 TO arr.length-1  DO
+        el := arr[i];
+        j := i-1;
+        WHILE (j >= 0 and arr[j] > el) DO
+            arr[j + 1] := arr[j];
+            j := j-1;
+        END_WHILE
+        arr[j + 1] := el;
+    END_FOR
+    RETURN arr ;
+END

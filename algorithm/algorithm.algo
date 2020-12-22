@@ -1,0 +1,34 @@
+ALGORITHM checkpoint_algo
+VAR
+ i,j,k:INTEGER;
+ len,words:INTEGER := 1;
+ vowels:INTEGER:=0;
+
+
+ sentence:STRING;
+BEGIN
+ write("please write a sentence ")
+ read(sentence)
+ // sentence length : 
+WHILE (sentence[i]<>".") DO
+    i:=i+1
+    len:=len+1
+END_WHILE
+
+ write("the linght of sentence is",len)
+ // number of words :
+ FOR j FROM 0 TO sentence.lenght-1 STEP 1  DO
+ IF (sentence[j]=' ') THEN
+     words := words +1;
+ END_IF
+ END_FOR
+  write("the number of words is",words)
+// number of vowels :
+ FOR k FROM 0 TO  sentence.lenght-1 STEP 1 DO
+ IF (sentence[k]='a'or sentence[k]='o'or sentence[k]='i' or sentence[k]='e' or sentence[k]='u' or sentence[k]='y' ) THEN
+     vowels:= vowels + 1
+ END_IF
+    write("the number of vowels is",vowels) 
+
+     END_FOR
+END
